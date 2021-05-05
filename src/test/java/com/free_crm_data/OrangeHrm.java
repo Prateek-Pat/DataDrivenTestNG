@@ -18,7 +18,7 @@ import com.excel_reader_utility.ExcelUtility;
 
 public class OrangeHrm {
 
-	// following things things needs to be updated while calling ExcelUtility
+	// following things  needs to be updated while calling ExcelUtility
 	// url from config.properties file.
 	// sheet name excel sheet tab
 	// Actions in @Test 

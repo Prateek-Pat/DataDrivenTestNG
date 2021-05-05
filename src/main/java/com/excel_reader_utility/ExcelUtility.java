@@ -14,8 +14,8 @@ public class ExcelUtility {
 	
 	public static Object[][] ExcelDataReader(String sheetName) throws IOException
 	{
-		XSSFWorkbook wb = new XSSFWorkbook("C:\\Users\\prate\\workspace\\DataDrivenUsingTestNG\\src\\main\\java\\com\\test_data\\Testdata.xlsx"); 
-		XSSFSheet sheet = wb.getSheet(sheetName);
+		XSSFWorkbook wb1 = new XSSFWorkbook("C:\\Users\\prate\\workspace\\DataDrivenUsingTestNG\\src\\main\\java\\com\\test_data\\Testdata.xlsx"); 
+		XSSFSheet sheet = wb1.getSheet(sheetName);
 		
 		int rowCount = sheet.getPhysicalNumberOfRows(); // method for calculating row count in sheet
 		int colCount = sheet.getRow(0).getPhysicalNumberOfCells();//

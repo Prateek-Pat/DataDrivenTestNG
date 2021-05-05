@@ -6,7 +6,6 @@
       <class name="com.free_crm_data.OrangeHrm">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
           <include name="CreatContacts"/>
         </methods>
       </class> <!-- com.free_crm_data.OrangeHrm -->

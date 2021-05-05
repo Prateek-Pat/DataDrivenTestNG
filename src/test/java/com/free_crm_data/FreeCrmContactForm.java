@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -21,6 +23,9 @@ public class FreeCrmContactForm {
 	static WebDriver driver;
 	static Properties prop;
 	static FileInputStream fis;
+	
+	public static WebDriverWait wait;
+	
 	
 	@BeforeMethod
 	public void setUp() throws IOException
@@ -53,14 +58,44 @@ public class FreeCrmContactForm {
 	@Test(dataProvider = "ExcelData")
 	public void CreatContacts(String FirstName, String LastName, String Company, String Email) throws IOException
 	{
-		driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(FirstName);
-		driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys(LastName);
-		driver.findElement(By.xpath("//div[@name='company']//input[@class='search']")).sendKeys(Company);
-		driver.findElement(By.xpath("//input[@placeholder='Email address']")).sendKeys(Email);
+
+//		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+//		driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(FirstName);
+//		driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys(LastName);
+//		driver.findElement(By.xpath("//div[@name='company']//input[@class='search']")).sendKeys(Company);
+//		driver.findElement(By.xpath("//input[@placeholder='Email address']")).sendKeys(Email);
+		
+		WebElement Fname = driver.findElement(By.xpath("//input[@name='first_name']"));
+		WebElement Lname = driver.findElement(By.xpath("//input[@name='last_name']"));
+		WebElement Company1 = driver.findElement(By.xpath("//div[@name='company']//input[@class='search']"));
+		WebElement Address  = driver.findElement(By.xpath("//input[@placeholder='Email address']"));
+		WebElement Save = driver.findElement(By.xpath("//button[@class='ui linkedin button']"));
+		
+		sendData(driver, Fname, 10, FirstName);
+		sendData(driver, Lname, 10, LastName);
+		sendData(driver, Company1, 10, Company);
+		sendData(driver, Address, 10, Email);
+		
+		clickOn(driver, Save, 10);
 		
 //		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(Username);
 //		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys(Password);
 //		driver.findElement(By.xpath("//button[@id='u_0_h']"));
+	}
+	
+	//Explicit wait implementation 
+	public static void sendData(WebDriver driver, WebElement element, int Timeout, String value){
+		
+		wait = new WebDriverWait(driver, Timeout);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		element.sendKeys(value);	
+	}
+	//Explicit wait implementation 
+	public static void clickOn(WebDriver driver, WebElement element, int Timeout){
+		
+		wait = new WebDriverWait(driver, Timeout);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		element.click();
 	}
 	
 	@DataProvider
@@ -76,5 +111,3 @@ public class FreeCrmContactForm {
 		driver.quit();
 	}	
 }
-
-

@@ -5,9 +5,8 @@
     <classes>
       <class name="com.free_crm_data.FreeCrmContactForm">
         <methods>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="CreatContacts" invocation-numbers="0 1 2 3 4"/>
+          <include name="CreatContacts"/>
         </methods>
       </class> <!-- com.free_crm_data.FreeCrmContactForm -->
     </classes>
