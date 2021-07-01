@@ -14,8 +14,9 @@ public class ExcelUtility {
 	public static int pageLoadTimeout=40; // Not necessary to initalize here 
 	public static int implicitlyWait=30;
 	
+	// DataFormatter is class used to format the data ot any type to string
 	static DataFormatter formatter = new DataFormatter();
-
+	
 	//Only sheet name should be updated in calling Class excelpath should be same as we are using same sheet frm excel
 	
 	public static Object[][] ExcelDataReader(String sheetName) throws IOException
