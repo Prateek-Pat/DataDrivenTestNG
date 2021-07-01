@@ -42,7 +42,6 @@ public class ExcelUtility {
 			XSSFCell cell = row.getCell(j);
 			obj[i][j] = formatter.formatCellValue(cell);
 			
-			
 				/*String cellData = sheet.getRow(row).getCell(col).getStringCellValue();
 				obj[row-1][col]=cellData;*/
 			}
