@@ -1,5 +1,7 @@
 package com.free_crm_data;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -31,12 +33,14 @@ public class OrangeHrm {
 	public void setUp() throws IOException
 	{
 		// Accessing config.properties file
-		Properties prop = new Properties();
+		prop = new Properties();
 		FileInputStream fis = new FileInputStream("C:\\Users\\prate\\workspace\\DataDrivenUsingTestNG\\config.properties");
 		prop.load(fis);
 		
 		//Invoking browser
-		System.setProperty("webdriver.chrome.driver", "E:\\SELENIUM\\Selenium By Rahul\\Jar's & Software\\webDriver Chrome\\chromedriver_win32\\chromedriver.exe");
+		/*System.setProperty("webdriver.chrome.driver", "E:\\SELENIUM\\Selenium By Rahul\\Jar's & Software\\webDriver Chrome\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();*/
+		WebDriverManager.chromedriver().version("90.0.4").setup();
 		driver = new ChromeDriver();
 			
 		//Performing actiosn once bowser invoked 

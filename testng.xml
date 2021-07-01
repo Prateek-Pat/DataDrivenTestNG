@@ -3,8 +3,8 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-     <!--  <class name="com.free_crm_data.FreeCrmContactForm"/> -->
+      <!-- <class name="com.free_crm_data.FreeCrmContactForm"/> -->
       <class name="com.free_crm_data.OrangeHrm"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+</suite> 

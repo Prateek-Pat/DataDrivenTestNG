@@ -1,5 +1,7 @@
 package com.free_crm_data;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -31,12 +33,14 @@ public class FreeCrmContactForm {
 	public void setUp() throws IOException
 	{
 		// Accessing config.properties file
-		Properties prop = new Properties();
+		prop = new Properties();
 		FileInputStream fis = new FileInputStream("C:\\Users\\prate\\workspace\\DataDrivenUsingTestNG\\config.properties");
 		prop.load(fis);
 		
 		//Invoking browser
-		System.setProperty("webdriver.chrome.driver", "E:\\SELENIUM\\Selenium By Rahul\\Jar's & Software\\webDriver Chrome\\chromedriver_win32\\chromedriver.exe");
+		/*System.setProperty("webdriver.chrome.driver", "E:\\STUDY Mate\\SELENIUM\\WebDrivers\\Chrome WebDriver\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();*/
+		WebDriverManager.chromedriver().version("90.0.4").setup();
 		driver = new ChromeDriver();
 		
 		
@@ -47,7 +51,7 @@ public class FreeCrmContactForm {
 		driver.manage().timeouts().implicitlyWait(ExcelUtility.implicitlyWait, TimeUnit.SECONDS);
 		
 		driver.get(prop.getProperty("url"));
-		driver.findElement(By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']")).click();
+		/*driver.findElement(By.xpath("//a[@class='btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left']")).click();*/
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys(prop.getProperty("username"));
 		driver.findElement(By.xpath("//input[@name='password']")).sendKeys(prop.getProperty("password"));
 		driver.findElement(By.xpath("(//div[contains(text(),'Login')])[1]")).click();
